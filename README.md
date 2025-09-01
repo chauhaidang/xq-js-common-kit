@@ -2,6 +2,9 @@
 
 A small, focused collection of JavaScript utilities and helpers used across projects.
 
+[![Build and Publish](https://github.com/chauhaidang/xq-js-common-kit/actions/workflows/publish.yml/badge.svg)](https://github.com/chauhaidang/xq-js-common-kit/actions/workflows/publish.yml)
+
+[![codecov](https://codecov.io/gh/chauhaidang/xq-js-common-kit/branch/main/graph/badge.svg?token=YOUR_CODECOV_TOKEN)](https://codecov.io/gh/chauhaidang/xq-js-common-kit)
 ## Overview
 
 This repository provides lightweight, dependency-friendly utilities for common tasks such as:
@@ -72,4 +75,4 @@ Contributions are welcome. Please open issues or pull requests for bug fixes and
 
 ## License
 
-MIT
+APACHE-2.0
