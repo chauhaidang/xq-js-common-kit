@@ -2,7 +2,7 @@
   "name": "@chauhaidang/xq-js-common-kit",
   "version": "1.0.2",
   "main": "index.js",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "scripts": {
     "start": "node main.js",
     "test": "jest",
@@ -16,7 +16,7 @@
     "url": "git+https://github.com/chauhaidang/xq-js-common-kit.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "chauhaidang",
   "bugs": {
     "url": "https://github.com/chauhaidang/xq-js-common-kit/issues"
   },
