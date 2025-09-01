@@ -61,8 +61,7 @@ Recommended release flow:
    ```
    git add package.json package-lock.json
    git commit -m "chore(release): <new-version>"
-   git tag <new-version>
-   git push origin <new-version>
+   git push
    ```
 
 This will trigger CI to build and publish the package.
