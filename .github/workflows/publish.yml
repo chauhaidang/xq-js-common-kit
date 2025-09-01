@@ -47,8 +47,10 @@ jobs:
           echo "version_prev=$VERSION_PREV" >> "$GITHUB_OUTPUT"
           if [ "$VERSION_NOW" != "$VERSION_PREV" ]; then
             echo "version_changed=true" >> "$GITHUB_OUTPUT"
+            echo "version_changed=true"
           else
             echo "version_changed=false" >> "$GITHUB_OUTPUT"
+            echo "version_changed=false"
           fi
       - name: Run tests
         run: npm test
