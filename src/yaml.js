@@ -12,5 +12,5 @@ function readYAML(filePath) {
 }
 
 module.exports = {
-    readYAML
-}
+    readYAML,
+};
