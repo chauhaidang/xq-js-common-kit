@@ -27,5 +27,6 @@
   },
   "dependencies": {
     "js-yaml": "^4.1.0"
-  }
+  },
+  "registry": "https://npm.pkg.github.com"
 }
