@@ -1,78 +1,124 @@
 # xq-js-common-kit
 
-A small, focused collection of JavaScript utilities and helpers used across projects.
+A focused collection of lightweight JavaScript utilities for use across multiple projects.
 
-[![Build and Publish](https://github.com/chauhaidang/xq-js-common-kit/actions/workflows/publish.yml/badge.svg)](https://github.com/chauhaidang/xq-js-common-kit/actions/workflows/publish.yml)
-
+[![Build & Publish](https://github.com/chauhaidang/xq-js-common-kit/actions/workflows/publish.yml/badge.svg)](https://github.com/chauhaidang/xq-js-common-kit/actions/workflows/publish.yml)
 [![codecov](https://codecov.io/gh/chauhaidang/xq-js-common-kit/branch/main/graph/badge.svg?token=YOUR_CODECOV_TOKEN)](https://codecov.io/gh/chauhaidang/xq-js-common-kit)
-## Overview
 
-This repository provides lightweight, dependency-friendly utilities for common tasks such as:
+---
+
+## ✨ Overview
+
+This kit provides minimal, dependency-friendly helpers for tasks like:
+
 - Reading YAML files
 - Generating random strings
-- Centralized configuration helpers
+- Centralized configuration management
 
-The kit is intentionally minimal so it can be included in other projects without heavy coupling.
+Designed for easy inclusion in any JavaScript project without heavy coupling.
 
-## Quick start
+---
+
+## 🚀 Quick Start
 
 Install dependencies:
 
-```
+```sh
 npm install
 ```
 
 Run tests:
 
-```
+```sh
 npm test
 ```
 
 Lint the codebase:
 
-```
+```sh
 npm run lint
 ```
 
-Run the build (syntax-check + tests):
+Auto-fix lint issues:
 
+```sh
+npm run lint:fix
 ```
+
+Build (syntax-check + tests):
+
+```sh
 npm run build
 ```
 
-## Scripts
+---
 
-- `npm test` — run the Jest test suite
-- `npm run lint` — run ESLint across the project
-- `npm run lint:fix` — automatically fix lintable issues
-- `npm run build` — check JS syntax and run tests
+## 📦 Usage Example
 
-## Publishing
+```js
+const { readYaml } = require('./src/yaml')
+const { randomString } = require('./src/string')
+const config = require('./src/config')
 
-This project is set up with a CI workflow that builds and publishes packages when a git tag is pushed. Use numeric tags (e.g. `1.2.3`) to trigger the publish workflow in the current configuration.
+// Read YAML file
+const data = readYaml('xq.yaml')
+console.log(data)
 
-Recommended release flow:
+// Generate a random string
+console.log(randomString(8))
 
-1. Bump the version without creating a tag:
+// Access config
+console.log(config.get('someKey'))
+```
 
-   ```
+---
+
+## 🛠️ Scripts
+
+- `npm test` — Run Jest test suite
+- `npm run lint` — Run ESLint
+- `npm run lint:fix` — Auto-fix lint issues
+- `npm run build` — Syntax check & run tests
+- `npm start` — Run main.js
+
+---
+
+## 🚚 Publishing
+
+This project uses GitHub Actions to automate publishing to GitHub Packages.
+
+**Publishing occurs when:**
+- The version in `package.json` changes (compared to the previous commit on `main`)
+- Or the workflow is manually triggered from GitHub Actions
+
+**How it works:**
+- On every push to the `main` branch, the workflow checks if the version in `package.json` has changed.
+- If the version changed, the package is published to GitHub Packages (`npm.pkg.github.com`).
+- You can also manually trigger the workflow from the GitHub Actions tab.
+- Authentication uses the built-in `GITHUB_TOKEN` secret (no need for an npm token).
+
+**Release flow:**
+
+1. Bump the version in `package.json`:
+   ```sh
    npm version <new-version> --no-git-tag-version
    ```
-
-2. Commit changes and create a numeric git tag:
-
-   ```
+2. Commit and push to `main`:
+   ```sh
    git add package.json package-lock.json
    git commit -m "chore(release): <new-version>"
-   git push
+   git push origin main
    ```
+3. The workflow will detect the version change and publish automatically.
 
-This will trigger CI to build and publish the package.
+---
 
-## Contributing
+## 🤝 Contributing
 
-Contributions are welcome. Please open issues or pull requests for bug fixes and enhancements.
+Contributions are welcome! Please open issues or pull requests for bugs and enhancements.
 
-## License
+---
 
-APACHE-2.0
+## 📄 License
+
+Apache-2.0
