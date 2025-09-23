@@ -14,6 +14,7 @@ This kit provides minimal, dependency-friendly helpers for tasks like:
 - Reading YAML files
 - Generating random strings
 - Centralized configuration management
+- Structured logging with multiple levels
 
 Designed for easy inclusion in any JavaScript project without heavy coupling.
 
@@ -56,19 +57,59 @@ npm run build
 ## 📦 Usage Example
 
 ```js
-const { readYaml } = require('./src/yaml')
-const { randomString } = require('./src/string')
-const config = require('./src/config')
+const { readYAML, generateRandomString, getConfig, logger } = require('@chauhaidang/xq-js-common-kit')
 
 // Read YAML file
-const data = readYaml('xq.yaml')
+const data = readYAML('xq.yaml')
 console.log(data)
 
 // Generate a random string
-console.log(randomString(8))
+console.log(generateRandomString(8))
 
 // Access config
-console.log(config.get('someKey'))
+console.log(getConfig().someKey)
+
+// Logging
+logger.info('Application started')
+logger.error('Something went wrong')
+logger.debug('Debug information')
+```
+
+---
+
+## 📝 Logger
+
+The logger module provides structured logging with multiple levels and colored output.
+
+### Log Levels
+- `DEBUG` (0) - Detailed debug information
+- `INFO` (1) - General information messages
+- `WARN` (2) - Warning messages
+- `ERROR` (3) - Error messages
+
+### Usage
+
+```js
+const { logger } = require('@chauhaidang/xq-js-common-kit')
+
+// Basic logging
+logger.info('Server started on port 3000')
+logger.warn('Memory usage is high')
+logger.error('Database connection failed')
+logger.debug('Processing user request')
+
+// Multiple arguments
+logger.info('User logged in:', { userId: 123, email: 'user@example.com' })
+
+// Configure log level (only logs at or above this level)
+logger.setLevel('WARN')  // Only WARN and ERROR messages will be shown
+logger.setLevel('DEBUG') // All messages will be shown
+```
+
+### Output Format
+```
+[2025-09-23T10:30:45.123Z] INFO: Server started on port 3000
+[2025-09-23T10:30:46.456Z] ERROR: Database connection failed
 ```
 
 ---

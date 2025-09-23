@@ -1,11 +1,11 @@
 describe('Yaml module', () => {
     it('should load yaml file correctly', () => {
-        const {readYAML} = require('../yaml');
-        const fs = require('fs');
-        const path = require('path');
+        const { readYAML } = require('../yaml')
+        const fs = require('fs')
+        const path = require('path')
 
         // Create a temporary YAML file for testing
-        const tempYamlPath = path.join(__dirname, 'temp_test.yaml');
+        const tempYamlPath = path.join(__dirname, 'temp_test.yaml')
         const yamlContent = `
         name: Test
         version: 1.0.0
@@ -22,11 +22,11 @@ describe('Yaml module', () => {
                 environmentVariables:
                   - ENV_VAR_A=valueA
                   - ENV_VAR_B=valueB
-        `;
-        fs.writeFileSync(tempYamlPath, yamlContent);
+        `
+        fs.writeFileSync(tempYamlPath, yamlContent)
 
         // Read the YAML file using the readYAML function
-        const result = readYAML(tempYamlPath);
+        const result = readYAML(tempYamlPath)
 
         // Validate the content
         expect(result).toEqual({
@@ -43,9 +43,9 @@ describe('Yaml module', () => {
                     environmentVariables: ['ENV_VAR_A=valueA', 'ENV_VAR_B=valueB']
                 }
             }
-        });
+        })
 
         // Clean up the temporary file
-        fs.unlinkSync(tempYamlPath);
-    });
-});
+        fs.unlinkSync(tempYamlPath)
+    })
+})
