@@ -1,6 +1,6 @@
 {
   "name": "@chauhaidang/xq-js-common-kit",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "index.js",
   "license": "Apache-2.0",
   "scripts": {
@@ -26,6 +26,7 @@
     "eslint": "^8.50.0"
   },
   "dependencies": {
-    "js-yaml": "^4.1.0"
+    "js-yaml": "^4.1.0",
+    "xml2js": "^0.6.2"
   }
 }
